@@ -7,7 +7,7 @@ class QuotationItemSerializer(serializers.ModelSerializer):
         fields = ['particular', 'ft', 'rate', 'amount']
 
 class QuotationSerializer(serializers.ModelSerializer):
-    items = QuotationItemSerializer(many=True)
+    items = QuotationItemSerializer(many=True, required=False)
 
     class Meta:
         model = Quotation

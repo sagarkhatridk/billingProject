@@ -16,7 +16,7 @@ class GenerateQuotationPDFView(APIView):
     def get(self, request, pk=None):
         if pk is not None:
             return self.retrieve(request, pk)
-        quotations = Quotation.objects.all()
+        quotations = Quotation.objects.all().order_by("-id")
         serializer = QuotationSerializer(quotations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
